@@ -1,0 +1,15 @@
+<ng-container *ngIf="room$ | async as room">
+  <h2 class="temperature" *ngIf="room.temperature | splitTemperature as temperatureParts">
+    {{temperatureParts[0]}}
+
+    <div class="decimal-point">.</div>
+
+    <div class="right">
+      <div class="unit">°</div>
+      <div class="decimal">
+        {{temperatureParts[1] || 0}}
+      </div>
+    </div>
+  </h2>
+  <h3>{{room.name}}</h3>
+</ng-container>

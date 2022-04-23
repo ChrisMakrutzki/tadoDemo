@@ -1,0 +1,59 @@
+@import "src/app/shared/scss/media-queries";
+
+:host {
+  display: flex;
+  flex-flow: column;
+  justify-content: end;
+
+  background: var(--color-yellow);
+  color: var(--color-white);
+  aspect-ratio: 4/3;
+
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+
+  width: calc(50% - var(--grid-gap) / 2);
+
+  @include sm {
+    width: calc(33% - var(--grid-gap) * 2 / 3);
+  }
+
+  @include md {
+    width: calc(25% - var(--grid-gap) * 3 / 4);
+  }
+
+  @include lg {
+    width: calc(20% - var(--grid-gap) * 4 / 5);
+  }
+}
+
+h2.temperature {
+  position: relative;
+  font-size: 3rem;
+  line-height: 1;
+
+  display: flex;
+
+  .decimal-point {
+    font-weight: 300;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  .right {
+    position: relative;
+    text-align: center;
+
+    .unit {
+      font-weight: 300;
+    }
+
+    .decimal {
+      position: absolute;
+      bottom: 4px;
+      width: 100%;
+      font-size: 1.2rem;
+    }
+  }
+}

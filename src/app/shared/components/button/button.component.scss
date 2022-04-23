@@ -1,0 +1,19 @@
+:host {
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+:host.transparent {
+  background: rgba(255,255,255,0.25);
+
+  &:hover {
+    background: rgba(255,255,255,0.40);
+  }
+}
+
+:host.primary {
+  background: var(--color-green);
+}
