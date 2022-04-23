@@ -7,7 +7,7 @@
 
   @include md {
     max-width: 400px;
-    max-height: 70vh;
+    max-height: 800px;
     border-radius: 20px;
   }
 }
@@ -68,6 +68,7 @@ header {
     font-size: 2.4rem;
     outline: 0;
     font-weight: bold;
+    color: var(--color-black-blue);
 
     &:focus {
       background: rgba(255,255,255, 0.7);
@@ -81,7 +82,7 @@ main {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8vh;
+  margin-bottom: 12vh;
 }
 
 h2.temperature {
