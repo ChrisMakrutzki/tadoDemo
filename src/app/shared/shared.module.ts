@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
 import { SelectOnInsertDirective } from './directive/select-on-insert.directive';
+import { TemperatureBackgroundDirective } from './directive/temperature-background.directive';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { SelectOnInsertDirective } from './directive/select-on-insert.directive'
     SearchInputComponent,
     ButtonComponent,
     SelectOnInsertDirective,
+    TemperatureBackgroundDirective,
   ],
   imports: [CommonModule, MatIconModule, FormsModule],
   exports: [
@@ -20,6 +22,7 @@ import { SelectOnInsertDirective } from './directive/select-on-insert.directive'
     SearchInputComponent,
     ButtonComponent,
     SelectOnInsertDirective,
+    TemperatureBackgroundDirective,
   ],
 })
 export class SharedModule {}

@@ -1,4 +1,4 @@
-<ng-container *ngIf="room$ | async as room">
+<div class="container" *ngIf="room$ | async as room" [appTemperatureBackground]="room.temperature" (click)="selectRoom()">
   <h2 class="temperature" *ngIf="room.temperature | splitTemperature as temperatureParts">
     {{temperatureParts[0]}}
 
@@ -12,4 +12,4 @@
     </div>
   </h2>
   <h3>{{room.name}}</h3>
-</ng-container>
+</div>

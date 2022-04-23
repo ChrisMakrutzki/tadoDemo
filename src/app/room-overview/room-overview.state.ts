@@ -6,6 +6,8 @@ import { RoomService } from '../shared/services/room.service';
 import { first } from 'rxjs';
 import { SearchRoomAction } from './actions/search-room.action';
 import { SelectRoomAction } from './actions/select-room.action';
+import { SaveRoomName } from './actions/save-room-name';
+import { patch, updateItem } from '@ngxs/store/operators';
 
 export interface RoomOverviewStateModel {
   rooms: Room[];
@@ -82,5 +84,26 @@ export class RoomOverviewState {
     ctx.patchState({
       selectedRoomId: action.roomId,
     });
+  }
+
+  @Action(SaveRoomName)
+  private saveRoomName(
+    ctx: StateContext<RoomOverviewStateModel>,
+    action: SaveRoomName
+  ) {
+    const room = ctx.getState().rooms?.find(({ id }) => id === action.roomId);
+
+    if (!room) return;
+
+    const newRoom = {
+      ...room,
+      name: action.name,
+    };
+
+    ctx.setState(
+      patch({
+        rooms: updateItem<Room>((room) => room?.id === action.roomId, newRoom),
+      })
+    );
   }
 }

@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RoomOverviewState } from '../../room-overview.state';
 import { Select, Store } from '@ngxs/store';
 import { map, Observable } from 'rxjs';
@@ -21,8 +21,8 @@ export class RoomListItemComponent implements OnInit {
 
   constructor(private store: Store) {}
 
-  @HostListener('click')
-  private onClick() {
+  public selectRoom() {
+    console.log('select');
     this.store.dispatch(new SelectRoomAction(this.id));
   }
 

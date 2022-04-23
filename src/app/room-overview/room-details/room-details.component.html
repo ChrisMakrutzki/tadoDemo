@@ -1,30 +1,35 @@
-<ng-container *ngIf="room$ | async as room">
+<div class="inner" *ngIf="room$ | async as room" [appTemperatureBackground]="room.temperature">
+  <header>
   <button class="close-btn" (click)="close()">
     <mat-icon>close</mat-icon>
   </button>
 
-  <header>
+  <button *ngIf="!editMode" app-button type="transparent" (click)="startEditMode()">Edit</button>
+  <button *ngIf="editMode" app-button type="primary" (click)="saveRoom()">Save</button>
+  </header>
+
+  <div class="title">
     <h1 *ngIf="!editMode">{{room.name}}</h1>
     <input #nameInput *ngIf="editMode" appSelectOnInsert type="text" [(ngModel)]="newName">
-  </header>
+  </div>
 
 
   <main>
-  <h2 class="temperature" *ngIf="room.temperature | splitTemperature as temperatureParts">
-    {{temperatureParts[0]}}
+    <h2 class="temperature" *ngIf="room.temperature | splitTemperature as temperatureParts">
+      {{temperatureParts[0]}}
 
-    <div class="decimal-point">.</div>
+      <div class="decimal-point">.</div>
 
-    <div class="right">
-      <div class="unit">°</div>
-      <div class="decimal">
-        {{temperatureParts[1] || 0}}
+      <div class="right">
+        <div class="unit">°</div>
+        <div class="decimal">
+          {{temperatureParts[1] || 0}}
+        </div>
       </div>
-    </div>
-  </h2>
+    </h2>
+    <h3 class="humidity">
+      <mat-icon>water_drop</mat-icon>
+      {{room.humidity}}%
+    </h3>
   </main>
-  <footer>
-    <button *ngIf="!editMode" app-button type="transparent" (click)="startEditMode()">Edit room</button>
-    <button *ngIf="editMode" app-button type="primary" (click)="saveRoom()">Save room</button>
-  </footer>
-</ng-container>
+</div>

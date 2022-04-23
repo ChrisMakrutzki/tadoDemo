@@ -7,13 +7,15 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
   providedIn: 'root',
 })
 export class OverlayService {
-  private overlayRef: OverlayRef = this.overlay.create({
+  private overlayRef: OverlayRef | null = this.overlay.create({
     panelClass: 'overlay-pane',
   });
 
   constructor(private overlay: Overlay) {}
 
   public open() {
+    if (this.overlayRef) this.overlayRef.detach();
+
     this.overlayRef = this.overlay.create({
       panelClass: 'overlay-pane',
     });
@@ -22,6 +24,7 @@ export class OverlayService {
   }
 
   public close() {
-    this.overlayRef.detach();
+    this.overlayRef?.detach();
+    this.overlayRef = null;
   }
 }
