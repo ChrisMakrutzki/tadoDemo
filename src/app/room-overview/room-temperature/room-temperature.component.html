@@ -1,12 +1,15 @@
-<h2 class="temperature" *ngIf="temperature | splitTemperature as temperatureParts">
-  {{temperatureParts[0]}}
+<h2
+  class="temperature"
+  *ngIf="temperature | splitTemperature as temperatureParts"
+>
+  {{ temperatureParts[0] }}
 
   <div class="decimal-point">.</div>
 
   <div class="right">
     <div class="unit">°</div>
     <div class="decimal">
-      {{temperatureParts[1] || 0}}
+      {{ temperatureParts[1] || 0 }}
     </div>
   </div>
 </h2>

@@ -1,4 +1,4 @@
-@import '@angular/cdk/overlay-prebuilt.css';
+@import "@angular/cdk/overlay-prebuilt.css";
 @import "variables";
 @import "src/app/shared/scss/media-queries";
 
@@ -15,7 +15,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   max-width: 100%;
   overflow-x: hidden;

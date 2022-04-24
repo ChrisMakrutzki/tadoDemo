@@ -1,25 +1,45 @@
-<div class="inner" *ngIf="room$ | async as room" [appTemperatureBackground]="room.temperature">
+<div
+  class="inner"
+  *ngIf="room$ | async as room"
+  [appTemperatureBackground]="room.temperature"
+>
   <header>
-  <button class="close-btn" (click)="close()">
-    <svg-icon fontSize="1.5rem" key="close"></svg-icon>
-  </button>
+    <button class="close-btn" (click)="close()">
+      <svg-icon fontSize="1.5rem" key="close"></svg-icon>
+    </button>
 
-  <button *ngIf="!editMode" app-button type="transparent" (click)="startEditMode()">Edit</button>
-  <button *ngIf="editMode" app-button type="primary" (click)="saveRoom()">Save</button>
+    <button
+      *ngIf="!editMode"
+      app-button
+      type="transparent"
+      (click)="startEditMode()"
+    >
+      Edit
+    </button>
+    <button *ngIf="editMode" app-button type="primary" (click)="saveRoom()">
+      Save
+    </button>
   </header>
 
   <div class="title">
-    <h1 *ngIf="!editMode">{{room.name}}</h1>
-    <input #nameInput *ngIf="editMode" appSelectOnInsert type="text" [(ngModel)]="newName">
+    <h1 *ngIf="!editMode">{{ room.name }}</h1>
+    <input
+      #nameInput
+      *ngIf="editMode"
+      appSelectOnInsert
+      type="text"
+      [(ngModel)]="newName"
+    />
   </div>
 
-
   <main>
-    <app-room-temperature [temperature]="room.temperature"></app-room-temperature>
+    <app-room-temperature
+      [temperature]="room.temperature"
+    ></app-room-temperature>
 
     <h3 class="humidity">
       <svg-icon fontSize="1.5rem" key="water-drop"></svg-icon>
-      {{room.humidity}}%
+      {{ room.humidity }}%
     </h3>
   </main>
 </div>

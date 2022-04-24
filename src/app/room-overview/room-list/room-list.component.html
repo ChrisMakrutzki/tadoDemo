@@ -1,1 +1,4 @@
-<app-room-list-item *ngFor="let room of rooms$ | async; trackBy: trackBy" [id]="room.id"></app-room-list-item>
+<app-room-list-item
+  *ngFor="let room of rooms$ | async; trackBy: trackBy"
+  [id]="room.id"
+></app-room-list-item>

@@ -1,5 +1,10 @@
-<div class="container" *ngIf="room$ | async as room" [appTemperatureBackground]="room.temperature" (click)="selectRoom()">
+<div
+  class="container"
+  *ngIf="room$ | async as room"
+  [appTemperatureBackground]="room.temperature"
+  (click)="selectRoom()"
+>
   <app-room-temperature [temperature]="room.temperature"></app-room-temperature>
 
-  <h3>{{room.name}}</h3>
+  <h3>{{ room.name }}</h3>
 </div>
