@@ -13,6 +13,7 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
 import { OverlayService } from './overlay.service';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { RoomTemperatureComponent } from './room-temperature/room-temperature.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     RoomListComponent,
     RoomListItemComponent,
     RoomDetailsComponent,
+    RoomTemperatureComponent,
   ],
   imports: [
     CommonModule,

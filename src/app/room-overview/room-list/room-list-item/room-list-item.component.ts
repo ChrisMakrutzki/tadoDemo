@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { RoomOverviewState } from '../../room-overview.state';
 import { Select, Store } from '@ngxs/store';
 import { map, Observable } from 'rxjs';
 import { Room } from '../../../shared/typings/room';
 import { SelectRoomAction } from '../../actions/select-room.action';
+import { OverlayService } from '../../overlay.service';
 
 @Component({
   selector: 'app-room-list-item',
@@ -19,11 +20,15 @@ export class RoomListItemComponent implements OnInit {
 
   public room$: Observable<Room>;
 
-  constructor(private store: Store) {}
+  constructor(
+    private store: Store,
+    private overlayService: OverlayService,
+    private elementRef: ElementRef
+  ) {}
 
   public selectRoom() {
-    console.log('select');
     this.store.dispatch(new SelectRoomAction(this.id));
+    this.overlayService.open(this.elementRef);
   }
 
   ngOnInit(): void {

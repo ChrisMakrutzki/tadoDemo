@@ -4,8 +4,7 @@ import { LoadRoomsAction } from './actions/load-rooms.action';
 import { SearchRoomAction } from './actions/search-room.action';
 import { Room } from '../shared/typings/room';
 import { RoomOverviewState } from './room-overview.state';
-import { filter, Observable } from 'rxjs';
-import { OverlayService } from './overlay.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-room-overview',
@@ -18,14 +17,10 @@ export class RoomOverviewComponent implements OnInit {
   @Select(RoomOverviewState.selectedRoom)
   public selectedRoom$: Observable<Room>;
 
-  constructor(private store: Store, private overlayService: OverlayService) {}
+  constructor(private store: Store) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.store.dispatch(new LoadRoomsAction());
-
-    this.selectedRoom$.subscribe((room) => {
-      room ? this.overlayService.open() : this.overlayService.close();
-    });
   }
 
   public onSearch(value: string): void {

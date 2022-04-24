@@ -19,7 +19,7 @@
 .container {
   display: flex;
   flex-flow: column;
-  justify-content: end;
+  justify-content: flex-end;
 
   background: var(--color-yellow);
   color: var(--color-white);
@@ -30,32 +30,8 @@
   cursor: pointer;
 }
 
-h2.temperature {
-  position: relative;
-  font-size: 3rem;
-  line-height: 1;
-
-  display: flex;
-
-  .decimal-point {
-    font-weight: 300;
-    margin-left: -2px;
-    margin-right: -2px;
-  }
-
-  .right {
-    position: relative;
-    text-align: center;
-
-    .unit {
-      font-weight: 300;
-    }
-
-    .decimal {
-      position: absolute;
-      bottom: 4px;
-      width: 100%;
-      font-size: 1.2rem;
-    }
-  }
+h3 {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

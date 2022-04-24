@@ -1,13 +1,13 @@
 @import "src/app/shared/scss/media-queries";
 
 :host {
-  width: 100%;
+  width: 400px;
   height: 100%;
   margin: 0 auto;
 
   @include md {
     max-width: 400px;
-    max-height: 800px;
+    max-height: 70vh;
     border-radius: 20px;
   }
 }
@@ -37,11 +37,11 @@ header {
   button.close-btn {
     padding: 4px;
     border-radius: 100%;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.25);
     cursor: pointer;
 
     &:hover {
-      background: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.40);
     }
 
     mat-icon {
@@ -56,6 +56,9 @@ header {
 
   h1 {
     line-height: 55px;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   input {
@@ -85,35 +88,8 @@ main {
   margin-bottom: 12vh;
 }
 
-h2.temperature {
-  position: relative;
+app-room-temperature {
   font-size: 6rem;
-  font-weight: 500;
-  line-height: 1;
-
-  display: flex;
-
-  .decimal-point {
-    font-weight: 300;
-    margin-left: -2px;
-    margin-right: -2px;
-  }
-
-  .right {
-    position: relative;
-    text-align: center;
-
-    .unit {
-      font-weight: 300;
-    }
-
-    .decimal {
-      position: absolute;
-      bottom: 6px;
-      width: 100%;
-      font-size: 2.4rem;
-    }
-  }
 }
 
 h3.humidity {

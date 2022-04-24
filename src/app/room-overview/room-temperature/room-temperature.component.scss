@@ -1,0 +1,33 @@
+:host {
+  font-size: 3rem;
+}
+
+h2.temperature {
+  position: relative;
+  font-size: 1em;
+  line-height: 1;
+
+  display: flex;
+
+  .decimal-point {
+    font-weight: 300;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  .right {
+    position: relative;
+    text-align: center;
+
+    .unit {
+      font-weight: 300;
+    }
+
+    .decimal {
+      position: absolute;
+      bottom: 0.2em;
+      width: 100%;
+      font-size: 0.4em;
+    }
+  }
+}

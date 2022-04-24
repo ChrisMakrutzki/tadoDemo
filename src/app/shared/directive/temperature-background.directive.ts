@@ -21,10 +21,10 @@ export class TemperatureBackgroundDirective implements OnChanges {
 
   private setBackground(): void {
     const thresholdKey = Object.keys(this.temperatureColorThresholds)
-      .reverse()
-      .find((temperature) => {
-        return this.appTemperatureBackground > parseInt(temperature);
-      });
+      .sort((a, b) => (parseInt(a) > parseInt(b) ? -1 : 1))
+      .find(
+        (temperature) => this.appTemperatureBackground > parseInt(temperature)
+      );
 
     if (thresholdKey) {
       this.background = this.temperatureColorThresholds[parseInt(thresholdKey)];

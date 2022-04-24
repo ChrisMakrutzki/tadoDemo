@@ -1,5 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { ElementRef, Injectable } from '@angular/core';
+import {
+  Overlay,
+  OverlayPositionBuilder,
+  OverlayRef,
+} from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 
@@ -11,14 +15,34 @@ export class OverlayService {
     panelClass: 'overlay-pane',
   });
 
-  constructor(private overlay: Overlay) {}
+  constructor(
+    private overlay: Overlay,
+    private overlayPositionBuilder: OverlayPositionBuilder
+  ) {}
 
-  public open() {
+  public open(elementRef: ElementRef) {
     if (this.overlayRef) this.overlayRef.detach();
+
+    const positionStrategy = this.overlayPositionBuilder
+      .flexibleConnectedTo(elementRef)
+      .withPositions([
+        {
+          originX: 'center',
+          originY: 'center',
+          overlayX: 'center',
+          overlayY: 'center',
+        },
+      ]);
 
     this.overlayRef = this.overlay.create({
       panelClass: 'overlay-pane',
+      positionStrategy,
+      hasBackdrop: true,
     });
+    this.overlayRef.backdropClick().subscribe(() => {
+      this.close();
+    });
+
     const roomDetailsPortal = new ComponentPortal(RoomDetailsComponent);
     this.overlayRef.attach(roomDetailsPortal);
   }

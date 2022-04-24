@@ -5,6 +5,7 @@ import { RoomOverviewState } from '../room-overview.state';
 import { Select, Store } from '@ngxs/store';
 import { SelectRoomAction } from '../actions/select-room.action';
 import { SaveRoomName } from '../actions/save-room-name';
+import { OverlayService } from '../overlay.service';
 
 @Component({
   selector: 'app-room-details',
@@ -19,10 +20,11 @@ export class RoomDetailsComponent {
 
   @ViewChild('nameInput') public nameInput: ElementRef;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private overlayService: OverlayService) {}
 
   public close(): void {
     this.store.dispatch(new SelectRoomAction(null));
+    this.overlayService.close();
   }
 
   public startEditMode() {
@@ -38,7 +40,7 @@ export class RoomDetailsComponent {
       RoomOverviewState.selectedRoom
     )?.id;
 
-    if (roomId) {
+    if (roomId != undefined) {
       this.store.dispatch(new SaveRoomName(roomId, this.newName));
     }
   }

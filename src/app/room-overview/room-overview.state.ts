@@ -93,6 +93,8 @@ export class RoomOverviewState {
   ) {
     const room = ctx.getState().rooms?.find(({ id }) => id === action.roomId);
 
+    console.log(room, action);
+
     if (!room) return;
 
     const newRoom = {

@@ -11,10 +11,6 @@ input {
   border: 2px solid transparent;
   border-radius: 8px;
   outline: 0;
-
-  &:focus {
-    border-color: var(--color-yellow);
-  }
 }
 
 input:focus + mat-icon.search-icon {
