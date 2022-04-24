@@ -1,8 +1,10 @@
 <ng-container *ngIf="rooms$ | async as rooms">
-  <app-room-list-item
-    *ngFor="let room of rooms$ | async; trackBy: trackBy"
-    [id]="room.id"
-  ></app-room-list-item>
+  <div class="grid">
+    <app-room-list-item
+      *ngFor="let room of rooms$ | async; trackBy: trackBy"
+      [id]="room.id"
+    ></app-room-list-item>
+  </div>
 
   <div
     class="no-rooms-container"

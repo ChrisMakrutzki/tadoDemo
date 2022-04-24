@@ -1,7 +1,21 @@
-:host {
-  display: flex;
-  flex-wrap: wrap;
+@import "src/app/shared/scss/media-queries";
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--grid-gap);
+
+  @include sm {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include md {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @include lg {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 .no-rooms-container {

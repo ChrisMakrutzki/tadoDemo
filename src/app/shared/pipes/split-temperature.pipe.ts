@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SplitTemperaturePipe implements PipeTransform {
   transform(value: number, separator: string = '.'): string[] {
-    if (!value) {
+    if (value == undefined) {
       return [];
     }
 

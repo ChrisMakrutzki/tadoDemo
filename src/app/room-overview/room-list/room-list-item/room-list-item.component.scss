@@ -1,38 +1,22 @@
-@import "src/app/shared/scss/media-queries";
-
-:host {
-  width: calc(50% - var(--grid-gap) / 2);
-
-  @include sm {
-    width: calc(33% - var(--grid-gap) * 2 / 3);
-  }
-
-  @include md {
-    width: calc(25% - var(--grid-gap) * 3 / 4);
-  }
-
-  @include lg {
-    width: calc(20% - var(--grid-gap) * 4 / 5);
-  }
-}
-
 .container {
   display: flex;
+  aspect-ratio: 4/3;
   flex-flow: column;
   justify-content: flex-end;
 
-  background: var(--color-yellow);
+  background: var(--color-dark-grey);
   color: var(--color-white);
-  aspect-ratio: 4/3;
 
   border-radius: 15px;
   padding: 10px;
   cursor: pointer;
 }
 
-h3 {
+h4 {
   max-width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  margin-top: 8px;
+  font-size: 1.2rem;
 }
