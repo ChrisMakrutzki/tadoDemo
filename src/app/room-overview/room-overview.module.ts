@@ -11,9 +11,9 @@ import { SharedModule } from '../shared/shared.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { OverlayService } from './overlay.service';
-import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { RoomTemperatureComponent } from './room-temperature/room-temperature.component';
+import { SvgIconsModule } from '@ngneat/svg-icon';
 
 @NgModule({
   declarations: [
@@ -29,8 +29,8 @@ import { RoomTemperatureComponent } from './room-temperature/room-temperature.co
     NgxsModule.forFeature([RoomOverviewState]),
     SharedModule,
     OverlayModule,
-    MatIconModule,
     FormsModule,
+    SvgIconsModule.forChild([]),
   ],
   providers: [OverlayService],
 })

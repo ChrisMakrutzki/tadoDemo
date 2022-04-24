@@ -35,6 +35,8 @@ header {
   justify-content: space-between;
 
   button.close-btn {
+    width: 32px;
+    height: 32px;
     padding: 4px;
     border-radius: 100%;
     background: rgba(255,255,255,0.25);
@@ -44,8 +46,10 @@ header {
       background: rgba(255,255,255,0.40);
     }
 
-    mat-icon {
+    svg-icon {
       vertical-align: middle;
+      color: var(--color-white);
+
     }
   }
 }
@@ -97,8 +101,7 @@ h3.humidity {
   line-height: 20px;
   vertical-align: middle;
 
-  mat-icon {
-    vertical-align: middle;
-    font-size: 1.5rem;
+  svg-icon {
+    vertical-align: text-bottom;
   }
 }

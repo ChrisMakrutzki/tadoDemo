@@ -7,6 +7,11 @@ import { NgxsModule } from '@ngxs/store';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SvgIconsModule } from '@ngneat/svg-icon';
+import { appSearchIcon } from '@app/svg/search';
+import { appCloseIcon } from '@app/svg/close';
+import { appCancelIcon } from '@app/svg/cancel';
+import { appWaterDropIcon } from '@app/svg/water_drop';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +23,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
       developmentMode: !environment.production,
     }),
     NoopAnimationsModule,
+    SvgIconsModule.forRoot({
+      icons: [appSearchIcon, appCloseIcon, appCancelIcon, appWaterDropIcon],
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

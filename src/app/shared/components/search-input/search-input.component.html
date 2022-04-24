@@ -1,7 +1,7 @@
 <input name="search" type="text" placeholder="Search for rooms..." [(ngModel)]="search" (ngModelChange)="onChange($event)">
 
-<mat-icon class="search-icon">search</mat-icon>
+<svg-icon fontSize="1.5rem" class="search-icon" key="search"></svg-icon>
 
 <button class="clear-btn" (click)="clear()">
-  <mat-icon>cancel</mat-icon>
+  <svg-icon key="cancel"></svg-icon>
 </button>

@@ -13,17 +13,18 @@ input {
   outline: 0;
 }
 
-input:focus + mat-icon.search-icon {
+input:focus + svg-icon.search-icon {
   opacity: 1;
 }
 
-mat-icon.search-icon {
+svg-icon.search-icon {
   position: absolute;
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
   color: var(--color-black-blue);
   opacity: .5;
+  font-size: 1.6rem;
 }
 
 button.clear-btn {
@@ -34,7 +35,7 @@ button.clear-btn {
   transform: translateY(-50%);
   cursor: pointer;
 
-  mat-icon {
+  svg-icon {
     width: 20px;
     height: 20px;
     font-size: 20px;
