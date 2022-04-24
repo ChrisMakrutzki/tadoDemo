@@ -48,6 +48,36 @@ export class RoomService {
         temperature: RoomService.generateRandomTemperature(),
         humidity: RoomService.generateRandomHumidity(),
       },
+      {
+        id: 6,
+        name: 'Guest Room',
+        temperature: RoomService.generateRandomTemperature(),
+        humidity: RoomService.generateRandomHumidity(),
+      },
+      {
+        id: 7,
+        name: 'Second Guest Room',
+        temperature: RoomService.generateRandomTemperature(),
+        humidity: RoomService.generateRandomHumidity(),
+      },
+      {
+        id: 8,
+        name: 'Fitness Room',
+        temperature: RoomService.generateRandomTemperature(),
+        humidity: RoomService.generateRandomHumidity(),
+      },
+      {
+        id: 9,
+        name: 'Bathroom Top Floor',
+        temperature: RoomService.generateRandomTemperature(),
+        humidity: RoomService.generateRandomHumidity(),
+      },
+      {
+        id: 10,
+        name: 'Dining Room',
+        temperature: RoomService.generateRandomTemperature(),
+        humidity: RoomService.generateRandomHumidity(),
+      },
     ];
   }
 

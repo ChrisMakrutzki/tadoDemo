@@ -2,11 +2,15 @@ h1 {
   margin-bottom: 40px;
 }
 
-h2 {
-  margin-bottom: 10px;
-}
+.search-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-light-grey);
+  padding: 20px;
+  margin: 0 -20px;
 
-app-search-input {
-  margin-bottom: 30px;
-  max-width: 400px;
+  app-search-input {
+    max-width: 400px;
+  }
 }
