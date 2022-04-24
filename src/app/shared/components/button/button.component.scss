@@ -17,3 +17,8 @@
 :host.primary {
   background: var(--color-blue);
 }
+
+:host:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

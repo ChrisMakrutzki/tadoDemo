@@ -16,7 +16,13 @@
     >
       Edit
     </button>
-    <button *ngIf="editMode" app-button type="primary" (click)="saveRoom()">
+    <button
+      *ngIf="editMode"
+      app-button
+      type="primary"
+      [disabled]="!newName?.length"
+      (click)="saveRoom()"
+    >
       Save
     </button>
   </div>

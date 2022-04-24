@@ -3,9 +3,11 @@ import {
   Overlay,
   OverlayPositionBuilder,
   OverlayRef,
+  ScrollStrategyOptions,
 } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { RoomDetailsComponent } from './room-details/room-details.component';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +17,16 @@ export class OverlayService {
     panelClass: 'overlay-pane',
   });
 
+  private backDropClickSubscription: Subscription | null;
+
   constructor(
     private overlay: Overlay,
-    private overlayPositionBuilder: OverlayPositionBuilder
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private readonly sso: ScrollStrategyOptions
   ) {}
 
   public open(elementRef: ElementRef) {
-    if (this.overlayRef) this.overlayRef.detach();
+    if (this.overlayRef) this.close();
 
     const positionStrategy = this.overlayPositionBuilder
       .flexibleConnectedTo(elementRef)
@@ -38,10 +43,11 @@ export class OverlayService {
       panelClass: 'overlay-pane',
       positionStrategy,
       hasBackdrop: true,
+      scrollStrategy: this.sso.block(),
     });
-    this.overlayRef.backdropClick().subscribe(() => {
-      this.close();
-    });
+    this.backDropClickSubscription = this.overlayRef
+      .backdropClick()
+      .subscribe(() => this.close());
 
     const roomDetailsPortal = new ComponentPortal(RoomDetailsComponent);
     this.overlayRef.attach(roomDetailsPortal);
@@ -50,5 +56,7 @@ export class OverlayService {
   public close() {
     this.overlayRef?.detach();
     this.overlayRef = null;
+    this.backDropClickSubscription?.unsubscribe();
+    this.backDropClickSubscription = null;
   }
 }
