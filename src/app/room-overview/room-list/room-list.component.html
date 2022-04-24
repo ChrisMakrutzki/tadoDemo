@@ -1,4 +1,23 @@
-<app-room-list-item
-  *ngFor="let room of rooms$ | async; trackBy: trackBy"
-  [id]="room.id"
-></app-room-list-item>
+<ng-container *ngIf="rooms$ | async as rooms">
+  <app-room-list-item
+    *ngFor="let room of rooms$ | async; trackBy: trackBy"
+    [id]="room.id"
+  ></app-room-list-item>
+
+  <div
+    class="no-rooms-container"
+    *ngIf="rooms.length === 0 && (isLoading$ | async) === false"
+  >
+    <h2 *ngIf="search$ | async as search; else noRooms">
+      Sorry, we couldn’t find any rooms for <b>{{ search }}</b>
+    </h2>
+
+    <ng-template #noRooms>
+      <h2>Sorry, but you don't have any rooms currently.</h2>
+    </ng-template>
+  </div>
+
+  <div class="is-loading-container" *ngIf="(isLoading$ | async) === true">
+    <app-loading-indicator></app-loading-indicator>
+  </div>
+</ng-container>

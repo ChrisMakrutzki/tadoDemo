@@ -13,6 +13,7 @@ export interface RoomOverviewStateModel {
   rooms: Room[];
   search: string;
   selectedRoomId: number | null;
+  isLoading: boolean;
 }
 
 @State<RoomOverviewStateModel>({
@@ -21,6 +22,7 @@ export interface RoomOverviewStateModel {
     rooms: [],
     search: '',
     selectedRoomId: 1,
+    isLoading: false,
   },
 })
 @Injectable()
@@ -52,16 +54,29 @@ export class RoomOverviewState {
     return state.rooms.find((r) => r.id === state.selectedRoomId) || null;
   }
 
+  @Selector()
+  public static search(state: RoomOverviewStateModel): string {
+    return state.search;
+  }
+
+  @Selector()
+  public static isLoading(state: RoomOverviewStateModel): boolean {
+    return state.isLoading;
+  }
+
   @Action(LoadRoomsAction)
   private loadRooms(ctx: StateContext<RoomOverviewStateModel>) {
+    ctx.patchState({
+      isLoading: true,
+    });
+
     this.roomService
       .loadRooms()
       .pipe(first())
       .subscribe((rooms) => {
-        const state = ctx.getState();
-        ctx.setState({
-          ...state,
+        ctx.patchState({
           rooms,
+          isLoading: false,
         });
       });
   }

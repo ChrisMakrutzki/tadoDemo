@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class RoomListComponent implements OnInit {
   @Select(RoomOverviewState.rooms) public rooms$: Observable<Room[]>;
+  @Select(RoomOverviewState.search) public search$: Observable<string>;
+  @Select(RoomOverviewState.isLoading) public isLoading$: Observable<boolean>;
 
   constructor() {}
 

@@ -7,7 +7,7 @@ import { Room } from '../typings/room';
 })
 export class RoomService {
   loadRooms(): Observable<Room[]> {
-    return of(RoomService.generateRoomData()).pipe(delay(200));
+    return of(RoomService.generateRoomData()).pipe(delay(2000));
   }
 
   private static generateRoomData(): Room[] {

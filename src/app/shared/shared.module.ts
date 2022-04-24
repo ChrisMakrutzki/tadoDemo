@@ -7,6 +7,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { SelectOnInsertDirective } from './directive/select-on-insert.directive';
 import { TemperatureBackgroundDirective } from './directive/temperature-background.directive';
 import { SvgIconsModule } from '@ngneat/svg-icon';
+import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
     ButtonComponent,
     SelectOnInsertDirective,
     TemperatureBackgroundDirective,
+    LoadingIndicatorComponent,
   ],
   imports: [CommonModule, FormsModule, SvgIconsModule.forChild([])],
   exports: [
@@ -23,6 +25,7 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
     ButtonComponent,
     SelectOnInsertDirective,
     TemperatureBackgroundDirective,
+    LoadingIndicatorComponent,
   ],
 })
 export class SharedModule {}
