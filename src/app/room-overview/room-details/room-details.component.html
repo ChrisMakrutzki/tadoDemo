@@ -3,7 +3,7 @@
   *ngIf="room$ | async as room"
   [appTemperatureBackground]="room.temperature"
 >
-  <header>
+  <div class="controls">
     <button class="close-btn" (click)="close()">
       <svg-icon fontSize="1.5rem" key="close"></svg-icon>
     </button>
@@ -19,9 +19,9 @@
     <button *ngIf="editMode" app-button type="primary" (click)="saveRoom()">
       Save
     </button>
-  </header>
+  </div>
 
-  <div class="title">
+  <header>
     <h1 *ngIf="!editMode">{{ room.name }}</h1>
     <input
       #nameInput
@@ -30,7 +30,7 @@
       type="text"
       [(ngModel)]="newName"
     />
-  </div>
+  </header>
 
   <main>
     <app-room-temperature

@@ -7,7 +7,8 @@
 
   @include md {
     max-width: 400px;
-    max-height: 70vh;
+    height: 700px;
+    max-height: 90vh;
     border-radius: 20px;
   }
 }
@@ -30,7 +31,7 @@
   }
 }
 
-header {
+.controls {
   display: flex;
   justify-content: space-between;
 
@@ -53,7 +54,7 @@ header {
   }
 }
 
-.title {
+header {
   text-align: center;
   margin-top: 8vh;
 
