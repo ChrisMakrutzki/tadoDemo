@@ -43,7 +43,7 @@
     "typescript": "~4.6.2"
   },
   "svgGenerator": {
-    "outputPath": "./src/app/svg",
+    "outputPath": "./src/app/shared/svg",
     "prefix": "app",
     "srcPath": "./src/assets/svg",
     "svgoConfig": {

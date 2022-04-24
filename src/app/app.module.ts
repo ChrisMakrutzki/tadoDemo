@@ -8,10 +8,10 @@ import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SvgIconsModule } from '@ngneat/svg-icon';
-import { appSearchIcon } from '@app/svg/search';
-import { appCloseIcon } from '@app/svg/close';
-import { appCancelIcon } from '@app/svg/cancel';
-import { appWaterDropIcon } from '@app/svg/water_drop';
+import { appSearchIcon } from '@app/shared/svg/search';
+import { appCloseIcon } from '@app/shared/svg/close';
+import { appCancelIcon } from '@app/shared/svg/cancel';
+import { appWaterDropIcon } from '@app/shared/svg/water_drop';
 
 @NgModule({
   declarations: [AppComponent],

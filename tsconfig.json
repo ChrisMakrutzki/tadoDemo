@@ -24,7 +24,7 @@
       "dom"
     ],
     "paths": {
-      "@app/svg/*": ["src/app/svg/*"]
+      "@app/shared/svg/*": ["src/app/shared/svg/*"]
     }
   },
   "angularCompilerOptions": {
