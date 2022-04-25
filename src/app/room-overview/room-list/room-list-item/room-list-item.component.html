@@ -1,4 +1,5 @@
-<div
+<a
+  role="button"
   class="container"
   *ngIf="room$ | async as room"
   [appTemperatureBackground]="room.temperature"
@@ -7,4 +8,4 @@
   <app-room-temperature [temperature]="room.temperature"></app-room-temperature>
 
   <h4>{{ room.name }}</h4>
-</div>
+</a>
